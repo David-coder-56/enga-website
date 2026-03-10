@@ -1,0 +1,6 @@
+/* ENGA App — Global Reset & Root Overrides */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   ENGA — Design System Variables
+   ============================================================ */
+:root {
+  --gold: #D4AF37;
+  --gold-light: #F4E4C1;
+  --gold-dark: #B8960C;
+  --maroon: #800000;
+
+  /* Light mode layering */
+  --bg-base: #FAFAF8;
+  --bg-surface: #FFFFFF;
+  --bg-raised: #F5F4F0;
+  --bg-border: rgba(212, 175, 55, 0.12);
+  --bg-section-alt: #F7F6F2;
+  --text-primary: #1A1A18;
+  --text-secondary: #6B6A64;
+
+  /* Gradients */
+  --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #E5C76B 50%, #D4AF37 100%);
+  --gold-gradient-dark: linear-gradient(135deg, #F4E4C1 0%, #D4AF37 50%, #F4E4C1 100%);
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 8px 32px rgba(212,175,55,0.04);
+  --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.06), 0 16px 48px rgba(212,175,55,0.12), 0 32px 64px rgba(0,0,0,0.08);
+  --shadow-gold: 0 0 20px rgba(212, 175, 55, 0.25);
+  --shadow-gold-hover: 0 0 40px rgba(212, 175, 55, 0.5);
+
+  --glass-bg: rgba(255,255,255,0.7);
+  --glass-border: rgba(212,175,55,0.15);
+}
+
+.dark {
+  --bg-base: #0A0A08;
+  --bg-surface: #111110;
+  --bg-raised: #18181A;
+  --bg-border: rgba(244, 228, 193, 0.08);
+  --bg-section-alt: #0F0F0D;
+  --text-primary: #F0EFE8;
+  --text-secondary: #9E9D96;
+
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.4), 0 8px 32px rgba(244,228,193,0.03);
+  --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.4), 0 16px 48px rgba(244,228,193,0.1), 0 32px 64px rgba(0,0,0,0.5);
+  --shadow-gold: 0 0 20px rgba(244, 228, 193, 0.2);
+  --shadow-gold-hover: 0 0 40px rgba(244, 228, 193, 0.4);
+
+  --glass-bg: rgba(17,17,16,0.8);
+  --glass-border: rgba(244,228,193,0.12);
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply antialiased;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+}
+
+/* ============================================================
+   LIGHT MODE RICH BACKGROUNDS
+   ============================================================ */
+
+/* Base page background with very subtle warm mesh */
+.bg-page {
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse 70% 40% at 15% 5%, rgba(212,175,55,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 35% at 85% 95%, rgba(212,175,55,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 50% 60%, rgba(128,0,0,0.02) 0%, transparent 60%);
+}
+
+.dark .bg-page {
+  background-image:
+    radial-gradient(ellipse 70% 40% at 15% 5%, rgba(244,228,193,0.05) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 35% at 85% 95%, rgba(244,228,193,0.03) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 50% 60%, rgba(128,0,0,0.04) 0%, transparent 60%);
+}
+
+/* Alternating section bg for better rhythm */
+.bg-section-alt {
+  background-color: var(--bg-section-alt);
+}
+
+/* Dots decoration */
+.bg-dots-subtle {
+  background-image: radial-gradient(circle, rgba(212,175,55,0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.dark .bg-dots-subtle {
+  background-image: radial-gradient(circle, rgba(244,228,193,0.06) 1px, transparent 1px);
+}
+
+/* Crosshatch for accent areas */
+.bg-crosshatch {
+  background-image:
+    repeating-linear-gradient(-45deg, rgba(212,175,55,0.04) 0px, rgba(212,175,55,0.04) 1px, transparent 1px, transparent 12px),
+    repeating-linear-gradient(45deg, rgba(212,175,55,0.04) 0px, rgba(212,175,55,0.04) 1px, transparent 1px, transparent 12px);
+}
+
+.dark .bg-crosshatch {
+  background-image:
+    repeating-linear-gradient(-45deg, rgba(244,228,193,0.025) 0px, rgba(244,228,193,0.025) 1px, transparent 1px, transparent 12px),
+    repeating-linear-gradient(45deg, rgba(244,228,193,0.025) 0px, rgba(244,228,193,0.025) 1px, transparent 1px, transparent 12px);
+}
+
+/* ============================================================
+   STAR BACKGROUND SYSTEM
+   ============================================================ */
+@keyframes star-pulse {
+  0%, 100% { opacity: var(--star-min, 0.05); transform: scale(1); }
+  50% { opacity: var(--star-max, 0.2); transform: scale(1.6); }
+}
+
+@keyframes shoot {
+  0% { opacity: 0; transform: translateX(0) translateY(0); }
+  5% { opacity: 0.8; }
+  25% { opacity: 0; transform: translateX(-180px) translateY(180px); }
+  100% { opacity: 0; transform: translateX(-180px) translateY(180px); }
+}
+
+.star-dot {
+  position: absolute;
+  border-radius: 50%;
+  /* default colour; most stars are coloured inline by the component now */
+  background-color: #D4AF37;
+  animation: star-pulse var(--dur, 3s) ease-in-out infinite;
+  animation-delay: var(--del, 0s);
+  --star-min: 0.05;
+  --star-max: 0.18;
+}
+
+.dark .star-dot {
+  background-color: #F4E4C1;
+  --star-min: 0.3;
+  --star-max: 0.8;
+}
+
+.shoot-star {
+  position: absolute;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, #D4AF37, transparent);
+  animation: shoot var(--dur, 8s) ease-in-out infinite;
+  animation-delay: var(--del, 0s);
+  opacity: 0;
+  transform-origin: right center;
+}
+
+.dark .shoot-star {
+  background: linear-gradient(90deg, #F4E4C1, transparent);
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+/* utility to darken pictures of people into black silhouettes when needed */
+.people-silhouette {
+  filter: brightness(0) saturate(100%);
+}
+.text-gradient-gold {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.dark .text-gradient-gold {
+  background: var(--gold-gradient-dark);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-border);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.4s ease, transform 0.4s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.dark .card {
+  background: var(--bg-raised);
+}
+
+.dark .card:hover {
+  border-color: rgba(244, 228, 193, 0.2);
+}
+
+/* Glass card */
+.card-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-card);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: #1A1A18;
+  color: #FAFAF8;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.dark .btn-primary {
+  background: var(--gold);
+  color: #1A1A18;
+}
+
+.btn-primary:hover {
+  background: var(--gold);
+  color: #1A1A18;
+  box-shadow: var(--shadow-gold-hover);
+  transform: translateY(-2px);
+}
+
+.dark .btn-primary:hover {
+  background: var(--gold-light);
+}
+
+.btn-outline {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 35px;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  color: #1A1A18;
+  background: transparent;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.dark .btn-outline {
+  border-color: rgba(244, 228, 193, 0.3);
+  color: #F0EFE8;
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.06);
+  transform: translateY(-2px);
+}
+
+.dark .btn-outline:hover {
+  background: rgba(244, 228, 193, 0.06);
+}
+
+/* ============================================================
+   SECTION LABELS
+   ============================================================ */
+.label-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.label-gold::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   HOVER HELPERS
+   ============================================================ */
+.hover-lift {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ============================================================
+   SECTION DIVIDER
+   ============================================================ */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.25), transparent);
+  border: none;
+  margin: 0;
+}
+
+.dark .divider-gold {
+  background: linear-gradient(90deg, transparent, rgba(244,228,193,0.12), transparent);
+}
+
+/* ============================================================
+   IMAGE OVERLAYS
+   ============================================================ */
+.overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,8,0.92) 0%, rgba(10,10,8,0.35) 55%, transparent 100%);
+}
+
+/* ============================================================
+   FOCUS
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #D4AF37, #F4E4C1);
+  border-radius: 3px;
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background: rgba(212, 175, 55, 0.2);
+  color: #1A1A18;
+}
+
+.dark ::selection {
+  background: rgba(244, 228, 193, 0.15);
+  color: #F0EFE8;
+}
+
+/* ============================================================
+   ENHANCED STAR ANIMATIONS
+   ============================================================ */
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.6); }
+}
+
+@keyframes star-shoot {
+  0% { opacity: 0; transform: translateX(0) translateY(0); }
+  5% { opacity: 0.8; }
+  25% { opacity: 0; transform: translateX(-180px) translateY(180px); }
+  100% { opacity: 0; transform: translateX(-180px) translateY(180px); }
+}
+
+@keyframes star-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.star-twinkle {
+  animation: star-twinkle var(--dur, 3s) ease-in-out infinite;
+  animation-delay: var(--del, 0s);
+}
+
+.star-shoot {
+  animation: star-shoot var(--dur, 8s) ease-in-out infinite;
+  animation-delay: var(--del, 0s);
+}
+
+.star-pulse {
+  animation: star-pulse var(--dur, 8s) ease-in-out infinite;
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  .no-print { display: none !important; }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   LABEL TAG (nano style)
+   ============================================================ */
+.label-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold, #D4AF37);
+}
+
+.label-tag::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold, #D4AF37);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   CARD NANO / GLASS GOLD
+   ============================================================ */
+.card-nano {
+  background: rgba(17, 17, 16, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.glass-gold {
+  background: rgba(212, 175, 55, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* ============================================================
+   BACKGROUND PATTERNS
+   ============================================================ */
+.bg-nano-grid {
+  background-image:
+    linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-hex-subtle {
+  background-image: radial-gradient(circle, rgba(212,175,55,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ============================================================
+   NANO / SURFACE BACKGROUNDS
+   ============================================================ */
+.bg-surface {
+  background-color: var(--bg-surface, #FFFFFF);
+}
+
+.dark .bg-surface {
+  background-color: var(--bg-raised, #18181A);
+}
+
+/* ============================================================
+   ENGA COLORS (Tailwind extend fallback)
+   ============================================================ */
+.text-enga-gold { color: #D4AF37; }
+.text-enga-white { color: #F0EFE8; }
+.text-enga-black { color: #1A1A18; }
+.bg-enga-gold { background-color: #D4AF37; }
+.bg-enga-black { background-color: #0A0A08; }
+.bg-enga-dark { background-color: #111110; }
+.bg-enga-maroon { background-color: #800000; }
+.border-enga-gold { border-color: #D4AF37; }
+.border-enga-gold\/10 { border-color: rgba(212,175,55,0.1); }
+.border-enga-gold\/25 { border-color: rgba(212,175,55,0.25); }
+.enga-white\/50 { color: rgba(240,239,232,0.5); }
