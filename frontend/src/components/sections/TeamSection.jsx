@@ -4,34 +4,34 @@ import { Linkedin, Twitter, ExternalLink } from 'lucide-react';
 import { aboutData } from '../../data/about_data.js';
 
 // Placeholder team data since aboutData.team is empty
-const PLACEHOLDER_TEAM = [
+cconst PLACEHOLDER_TEAM = [
   {
-    name: "James Enga",
+    name: "David D. Bankole",
     role: "Founder & CEO",
     specialty: "Strategy & Vision",
-    bio: "Serial entrepreneur with 10+ years building digital products at scale.",
-    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
+    bio: "Serial entrepreneur and tech innovator, leading ENGA with passion for premium digital products.",
+    img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=400&q=80", // Black male placeholder
   },
   {
     name: "Amara Kofi",
     role: "Lead Designer",
     specialty: "Brand & UI/UX Design",
     bio: "Award-winning designer focused on premium digital experiences.",
-    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+    img: "https://images.unsplash.com/photo-1603415526960-f7e0328e4c58?w=400&q=80", // Black female placeholder
   },
   {
-    name: "David Park",
+    name: "Kwame Mensah",
     role: "Head of Engineering",
     specialty: "Full-Stack & Architecture",
-    bio: "Former big-tech engineer building performant, scalable systems.",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    bio: "Expert software engineer building scalable and performant systems.",
+    img: "https://images.unsplash.com/photo-1614284242114-8d98d48a3e91?w=400&q=80", // Black male placeholder
   },
   {
-    name: "Sarah Mensah",
+    name: "Nia Johnson",
     role: "Growth Director",
     specialty: "SEO & Digital Marketing",
-    bio: "Data-driven marketer who has scaled brands from 0 to 7 figures.",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+    bio: "Data-driven marketer who scales brands to new heights with measurable results.",
+    img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a0?w=400&q=80", // Black female placeholder
   },
 ];
 

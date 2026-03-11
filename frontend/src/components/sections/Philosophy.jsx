@@ -43,7 +43,7 @@ export default function Philosophy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-enga-white/50 text-lg font-light leading-relaxed mb-12"
+              className="dark:text-enga-white/50 text-enga-black/50 text-lg font-light leading-relaxed mb-12"
             >
               We don't build websites. We architect digital ecosystems that evolve with your ambitions and outlast your competition.
             </motion.p>
@@ -64,7 +64,7 @@ export default function Philosophy() {
                     <h4 className="font-mono text-xs font-bold uppercase tracking-[3px] text-enga-gold mb-1">
                       {val.title}
                     </h4>
-                    <p className="text-enga-white/40 text-sm font-light leading-relaxed">{val.desc}</p>
+                    <p className="dark:text-enga-white/40 text-enga-black/40 text-sm font-light leading-relaxed">{val.desc}</p>
                   </div>
                 </motion.div>
               ))}

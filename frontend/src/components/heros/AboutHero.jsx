@@ -33,7 +33,7 @@ export default function AboutHero() {
               <br />
               Excellence.
             </motion.h1>
-            <motion.p variants={fadeUp} className="mt-8 text-enga-white/50 text-lg font-light max-w-xl leading-relaxed">
+            <motion.p variants={fadeUp} className="mt-8 dark:text-enga-white/50 text-enga-black/50 text-lg font-light max-w-xl leading-relaxed">
               {aboutData.hero.subtitle}
             </motion.p>
           </motion.div>
@@ -55,8 +55,8 @@ export default function AboutHero() {
       <section className="py-20 border-t border-enga-gold/10 bg-surface">
         <div className="max-w-[1600px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">
-            <div className="text-enga-white/30 text-xs font-mono tracking-[3px] uppercase mb-2">{aboutData.teamFooter.location}</div>
-            <div className="text-enga-gold/60 text-xs font-mono tracking-[3px] uppercase">{aboutData.teamFooter.size}</div>
+            <div className="dark:text-enga-white/30 text-enga-black/30 text-xs font-mono tracking-[3px] uppercase mb-2 ">{aboutData.teamFooter.location}</div>
+            <div className="dark:text-enga-gold/60 text-enga-gold/30 text-xs font-mono tracking-[3px] uppercase">{aboutData.teamFooter.size}</div>
           </div>
           <Link to="/contact" className="btn-primary text-xs">
             Work With Us

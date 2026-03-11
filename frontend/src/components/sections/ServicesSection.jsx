@@ -18,7 +18,7 @@ const ServiceCard = ({ service, index }) => (
     <div className="relative z-10 p-8 md:p-10 h-full flex flex-col">
       {/* Header */}
       <div className="flex justify-between items-start mb-10">
-        <span className="font-display text-5xl font-black text-enga-gold/10 group-hover:text-enga-gold/25 transition-colors duration-500 select-none">
+        <span className="font-display text-5xl font-black black:text-enga-gold/10 text-enga-gold group-hover:text-enga-gold/25 transition-colors duration-500 select-none">
           {service.id}
         </span>
         <div className="p-3.5 bg-enga-gold/6 border border-enga-gold/20 text-enga-gold rounded-lg group-hover:bg-enga-gold group-hover:text-enga-black transition-all duration-500 group-hover:rotate-[360deg] group-hover:shadow-lg">
