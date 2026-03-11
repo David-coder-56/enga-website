@@ -22,7 +22,7 @@ const TestimonialsComponent = ({ showCTA = true }) => (
           <h2 className="text-3xl md:text-4xl font-display font-bold text-enga-black dark:text-white mb-4">
             Experience the <span className="text-gradient-gold italic">transformation.</span>
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 font-light mb-8">
+          <p className="text-gray-600 dark:text-gray-400 font-light mb-8">
             Join 40+ brands who've elevated their digital presence with ENGA.
           </p>
           <Link to="/contact" className="btn-primary rounded-sm inline-flex">

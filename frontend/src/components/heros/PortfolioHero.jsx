@@ -15,7 +15,7 @@ const PortfolioHero = () => (
           </h1>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="max-w-xs border-l-2 border-enga-gold/30 pl-8 pb-4">
-          <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed font-light">
+          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-light">
             A curation of digital excellence — spanning fintech, luxury real estate, e-commerce, and neural SaaS platforms.
           </p>
         </motion.div>

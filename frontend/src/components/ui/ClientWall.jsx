@@ -27,7 +27,7 @@ const ClientWall = () => {
               <div className="flex gap-1 mb-4">
                 {[1,2,3,4,5].map(s => <Star key={s} size={11} className="fill-enga-gold text-enga-gold" />)}
               </div>
-              <p className="text-gray-600 dark:text-gray-400 italic text-sm mb-5 font-light leading-relaxed">"{review.text}"</p>
+              <p className="text-gray-700 dark:text-gray-400 italic text-sm mb-5 font-light leading-relaxed">"{review.text}"</p>
               <div>
                 <p className="text-enga-black dark:text-white font-bold text-xs uppercase tracking-widest">{review.name}</p>
                 <p className="text-enga-gold text-[10px] font-bold mt-0.5">{review.company}</p>

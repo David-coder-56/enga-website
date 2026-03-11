@@ -12,7 +12,7 @@ const ServiceHero = () => (
           Precision <br />
           <span className="text-gradient-gold italic">Engineering.</span>
         </h1>
-        <p className="text-lg md:text-2xl text-gray-500 dark:text-gray-400 font-light max-w-2xl leading-relaxed">
+        <p className="text-lg md:text-2xl text-gray-600 dark:text-gray-400 font-light max-w-2xl leading-relaxed">
           High-frequency digital assets designed to scale, convert, and dominate. From pixel-perfect UI to iron-clad backends.
         </p>
       </motion.div>
@@ -25,7 +25,7 @@ const ServiceHero = () => (
         className="flex flex-wrap gap-3 mt-12"
       >
         {['Web Development', 'Mobile Apps', 'Digital Marketing', 'Brand Identity', 'SEO', 'E-Commerce'].map((s) => (
-          <span key={s} className="px-4 py-2 rounded-full border border-enga-gold/20 text-[10px] uppercase tracking-[2px] font-bold text-gray-500 dark:text-gray-400 bg-white dark:bg-enga-dark/50 hover:border-enga-gold hover:text-enga-gold transition-all duration-300 cursor-default">
+          <span key={s} className="px-4 py-2 rounded-full border border-enga-gold/20 text-[10px] uppercase tracking-[2px] font-bold text-gray-600 dark:text-gray-400 bg-white dark:bg-enga-dark/50 hover:border-enga-gold hover:text-enga-gold transition-all duration-300 cursor-default">
             {s}
           </span>
         ))}

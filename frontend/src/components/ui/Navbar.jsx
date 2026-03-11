@@ -105,7 +105,7 @@ const Navbar = React.memo(() => {
             animate={{ opacity: 1, clipPath: 'circle(150% at 100% 0%)' }}
             exit={{ opacity: 0, clipPath: 'circle(0% at 100% 0%)' }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 h-screen bg-white dark:bg-enga-black z-[110] flex flex-col px-8 pt-28 pb-10"
+            className="fixed inset-0 h-screen bg-white dark:bg-enga-black z-[110] flex flex-col px-8 pt-28 pb-10 overflow-y-auto"
           >
             {/* Watermark */}
             <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none overflow-hidden">
@@ -138,13 +138,13 @@ const Navbar = React.memo(() => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mt-auto pt-8 border-t border-gray-100 dark:border-white/10"
+              className="mt-auto pt-8 border-t border-gray-100 dark:border-white/10 flex-shrink-0"
             >
               <p className="text-enga-gold text-[10px] uppercase tracking-[4px] font-bold mb-3">Get in Touch</p>
               <a href="mailto:elitenextgentagency87@gmail.com" className="text-xl font-display font-bold text-enga-black dark:text-white">
                 elitenextgentagency87@gmail.com
               </a>
-              <div className="flex gap-6 mt-5 text-[10px] uppercase tracking-[2px] text-gray-400">
+              <div className="flex gap-6 mt-5 text-[10px] uppercase tracking-[2px] text-gray-600 dark:text-gray-400">
                 <span>Instagram</span>
                 <span>LinkedIn</span>
                 <span>Twitter</span>

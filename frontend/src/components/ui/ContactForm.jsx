@@ -33,7 +33,7 @@ const ContactForm = React.memo(() => {
     }
   };
 
-  const inputClass = "w-full bg-transparent border-b border-gray-200 dark:border-gray-800 py-3 px-1 focus:border-enga-gold dark:focus:border-enga-gold outline-none transition-colors duration-300 text-enga-black dark:text-white text-sm placeholder:text-gray-400 dark:placeholder:text-gray-600";
+  const inputClass = "w-full bg-transparent border-b border-gray-200 dark:border-gray-800 py-3 px-1 focus:border-enga-gold dark:focus:border-enga-gold outline-none transition-colors duration-300 text-enga-black dark:text-white text-sm placeholder:text-gray-500 dark:placeholder:text-gray-600";
 
   return (
     <motion.div
@@ -51,7 +51,7 @@ const ContactForm = React.memo(() => {
           {/* Row 1: Name + Email */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
             <div>
-              <label className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold block mb-2">
+              <label className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-500 font-bold block mb-2">
                 {contactInfo.form.fields.fullName.label}
               </label>
               <input
@@ -63,7 +63,7 @@ const ContactForm = React.memo(() => {
               />
             </div>
             <div>
-              <label className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold block mb-2">
+              <label className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-500 font-bold block mb-2">
                 {contactInfo.form.fields.email.label}
               </label>
               <input
@@ -78,7 +78,7 @@ const ContactForm = React.memo(() => {
 
           {/* Row 2: Service */}
           <div>
-            <label className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold block mb-2">
+            <label className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-500 font-bold block mb-2">
               {contactInfo.form.fields.service.label}
             </label>
             <select name="service" className={`${inputClass} cursor-pointer`}>
@@ -90,7 +90,7 @@ const ContactForm = React.memo(() => {
 
           {/* Row 3: Message */}
           <div>
-            <label className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold block mb-2">
+            <label className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-500 font-bold block mb-2">
               {contactInfo.form.fields.vision.label}
             </label>
             <textarea

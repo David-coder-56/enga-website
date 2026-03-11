@@ -10,7 +10,7 @@ const TechStack = () => (
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="text-center text-[10px] uppercase tracking-[5px] text-gray-400 dark:text-gray-500 font-black mb-12"
+        className="text-center text-[10px] uppercase tracking-[5px] text-gray-600 dark:text-gray-500 font-black mb-12"
       >
         Powered by Elite Technology
       </motion.p>
