@@ -33,7 +33,7 @@ export default function AboutHero() {
               <br />
               Excellence.
             </motion.h1>
-            <motion.p variants={fadeUp} className="mt-8 dark:text-enga-white/50 text-enga-black/50 text-lg font-light max-w-xl leading-relaxed">
+            <motion.p variants={fadeUp} className="mt-8 text-gray-700 dark:text-gray-400 text-lg font-light max-w-xl leading-relaxed">
               {aboutData.hero.subtitle}
             </motion.p>
           </motion.div>
